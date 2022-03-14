@@ -1,0 +1,73 @@
+{
+    "company": {
+        "name": "company test",
+        "tax_number": "52.701.020/0001-93"
+    },
+    "address": {
+        "street": "street teste",
+        "number": "444",
+        "additionalDetails": "pimba",
+        "neighborhood": "neighborhood teste",
+        "city": "city",
+        "postalCode": "44440-000",
+        "state": "ST"
+    },
+    "bank": {
+        "bankCode": "237",
+        "branchCode": "12345",
+        "accountNumber": "13456789012",
+        "accountType": "CC"
+    },
+    "sequence": "1",
+    "agreement": "12",
+    "sameBankTransfers": [
+        {
+            "transferId": "124565",
+            "amount": 2800.0,
+            "transferAccount": {
+                "name": "Reciver account teste",
+                "taxNumber": "38.431.333/0001-48",
+                "address": {
+                    "street": "reciver street teste",
+                    "number": "658",
+                    "additionalDetails": "reciver pimba",
+                    "neighborhood": "reciver neighborhood teste",
+                    "city": "reciver city",
+                    "postalCode": "44440-000",
+                    "state": "ST"
+                },
+                "bank": {
+                    "bankCode": "237",
+                    "branchCode": "66666",
+                    "accountNumber": "7775678966",
+                    "accountType": "CC"
+                }
+            }
+        }
+    ],
+    "otherBankTransfers": [
+        {
+            "transferId": "666666",
+            "amount": 2800.0,
+            "transferAccount": {
+                "name": "Reciver account teste 2",
+                "taxNumber": "38.431.333/0001-48",
+                "address": {
+                    "street": "reciver street teste 2",
+                    "number": "6582",
+                    "additionalDetails": "reciver pimba 2",
+                    "neighborhood": "reciver neighborhood teste 2",
+                    "city": "reciver city 2",
+                    "postalCode": "44440-000",
+                    "state": "ST"
+                },
+                "bank": {
+                    "bankCode": "600",
+                    "branchCode": "66666",
+                    "accountNumber": "7772228966",
+                    "accountType": "CC"
+                }
+            }
+        }
+    ]
+}
