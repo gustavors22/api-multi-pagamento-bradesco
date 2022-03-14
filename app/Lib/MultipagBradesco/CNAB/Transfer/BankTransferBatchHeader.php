@@ -9,7 +9,7 @@ use App\Lib\MultipagBradesco\TransferAccount;
 
 class BankTransferBatchHeader
 {
-    public static function render(int $agreement, int $batch, bool $sameBank, TransferAccount $company): string
+    public static function render(string $agreement, string $batch, bool $sameBank, TransferAccount $company): string
     {
         $taxNumber = $company->getTaxNumber();
         $bankDetails = $company->getBankDetails();
@@ -49,7 +49,7 @@ class BankTransferBatchHeader
 
             // Company Address
             '19.1' => CNAB::alpha($address->getStreet(), 30),
-            '20.1' => CNAB::num($address->getNumber(), 5),
+            '20.1' => CNAB::num("{$address->getNumber()}", 5),
             '21.1' => CNAB::alpha($address->getAdditionalDetails(), 15),
             '22.1' => CNAB::alpha($address->getCity(), 20),
             '23.1 + 24.1' => CNAB::alpha($address->getPostalCode(), 8),

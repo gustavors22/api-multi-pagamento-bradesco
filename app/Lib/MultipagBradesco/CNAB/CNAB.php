@@ -44,7 +44,7 @@ abstract class CNAB
         return self::num($content, $length);
     }
 
-    public static function num(string|float|int $value, int $length): string
+    public static function num(string $value, int $length): string
     {
         $content = preg_replace('/[.\-]/', '', "{$value}");
         $content = "{$content}";
@@ -53,7 +53,7 @@ abstract class CNAB
         return str_pad("{$content}", $length, '0', STR_PAD_LEFT);
     }
 
-    public static function alpha(string|int $value, int $length): string
+    public static function alpha(string $value, int $length): string
     {
         $content = mb_strtoupper("{$value}");
         $content = self::stripAccents("{$content}");
@@ -63,7 +63,7 @@ abstract class CNAB
         return substr($content, 0, $length);
     }
 
-    public static function pad(string|int $content, int $length, string $fill): string
+    public static function pad(string $content, int $length, string $fill): string
     {
         $content = "{$content}";
         Assert::that(strlen($content) <= $length, InvalidValue::valueIsToLong($content, $length));

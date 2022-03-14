@@ -16,8 +16,8 @@ class File
      * @param array<BankTransfer> $otherBankTransfers
      */
     public static function render(
-        int $sequence,
-        int $agreement,
+        string $sequence,
+        string $agreement,
         TransferAccount $company,
         DateTimeImmutable $now,
         array $sameBankTransfers,
@@ -35,12 +35,12 @@ class File
 
         if (count($sameBankTransfers) > 0) {
             $numOfBatches++;
-            $lines[] = TransferBatch::render($agreement, $numOfBatches, true, $company, ...$sameBankTransfers);
+            $lines[] = TransferBatch::render($agreement, "$numOfBatches", true, $company, $sameBankTransfers);
         }
 
         if (count($otherBankTransfers) > 0) {
             $numOfBatches++;
-            $lines[] = TransferBatch::render($agreement, $numOfBatches, false, $company, ...$otherBankTransfers);
+            $lines[] = TransferBatch::render($agreement, "$numOfBatches", false, $company, $otherBankTransfers);
         }
 
         $lines[] = FileTrailer::render($numOfBatches, $numOfTransferEntries);

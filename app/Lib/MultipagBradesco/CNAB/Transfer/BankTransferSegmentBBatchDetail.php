@@ -20,11 +20,11 @@ class BankTransferSegmentBBatchDetail
         return CNAB::join([
             // Control
             '01.3B' => CNAB::G001_237_BRADESCO,
-            '02.3B' => CNAB::num($batch, 4),
+            '02.3B' => CNAB::num("$batch", 4),
             '03.3B' => CNAB::G003_3_REGISTER_TYPE_DETAIL,
 
             // Service
-            '04.3B' => CNAB::num($sequence, 5),
+            '04.3B' => CNAB::num("$sequence", 5),
             '05.3B' => CNAB::G039_SEGMENT_TYPE_B,
             '06.3B' => '   ',
 
@@ -32,7 +32,7 @@ class BankTransferSegmentBBatchDetail
             '07.3B' => $taxNumber->getType(),
             '08.3B' => CNAB::num($taxNumber->getNumber(), 14),
             '09.3B' => CNAB::alpha($address->getStreet(), 30),
-            '10.3B' => CNAB::num($address->getNumber(), 5),
+            '10.3B' => CNAB::num("{$address->getNumber()}", 5),
             '11.3B' => CNAB::alpha($address->getAdditionalDetails(), 15),
             '12.3B' => CNAB::alpha($address->getNeighborhood(), 15),
             '13.3B' => CNAB::alpha($address->getCity(), 20),

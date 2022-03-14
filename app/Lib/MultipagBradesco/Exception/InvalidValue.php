@@ -11,7 +11,7 @@ class InvalidValue extends BradescoMultipagException
         parent::__construct($message);
     }
 
-    public static function valueIsToLong(string|int $value, int $max): self
+    public static function valueIsToLong(string $value, int $max): self
     {
         return new self(
             sprintf(

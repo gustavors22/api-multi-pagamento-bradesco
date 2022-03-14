@@ -21,9 +21,9 @@ class FileTrailer
 
             '04.9' => CNAB::alpha('', 9),
 
-            '05.9' => CNAB::num($numBatches, 6),
-            '06.9' => CNAB::num($totalEntries, 6),
-            '07.9' => CNAB::num(0, 6),
+            '05.9' => CNAB::num("$numBatches", 6),
+            '06.9' => CNAB::num("$totalEntries", 6),
+            '07.9' => CNAB::num("0", 6),
 
             '08.0' => CNAB::alpha('', 205),
         ]);

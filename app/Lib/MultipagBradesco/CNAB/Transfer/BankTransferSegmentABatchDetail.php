@@ -9,7 +9,7 @@ use App\Lib\MultipagBradesco\CNAB\CNAB;
 
 class BankTransferSegmentABatchDetail
 {
-    public static function render(BankTransfer $transfer, int $batch, int $sequence, bool $sameBank): string
+    public static function render(BankTransfer $transfer, string $batch, string $sequence, bool $sameBank): string
     {
         $transferId = $transfer->getTransferId();
         $accountHolder = $transfer->getAccountHolder();

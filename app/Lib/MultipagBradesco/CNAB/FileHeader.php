@@ -10,8 +10,8 @@ use DateTimeImmutable;
 class FileHeader
 {
     public static function render(
-        int $sequence,
-        int $agreement,
+        string $sequence,
+        string $agreement,
         TransferAccount $company,
         DateTimeImmutable $now
     ): string {

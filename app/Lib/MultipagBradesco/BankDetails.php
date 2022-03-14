@@ -30,32 +30,32 @@ class BankDetails
         $this->accountType = $accountType;
     }
 
-    public function getBankCode(): string
+    public function getBankCode()
     {
         return $this->bankCode;
     }
 
-    public function getBranchCode(): string
+    public function getBranchCode()
     {
         return $this->branchCode;
     }
 
-    public function getBranchCodeDigit(): mixed
+    public function getBranchCodeDigit()
     {
         return $this->branchCodeDigit;
     }
 
-    public function getAccountNumber(): string
+    public function getAccountNumber()
     {
         return $this->accountNumber;
     }
 
-    public function getAccountNumberDigit(): mixed
+    public function getAccountNumberDigit()
     {
         return $this->accountNumberDigit;
     }
 
-    public function getAccountType(): string
+    public function getAccountType()
     {
         return "{$this->accountType}";
     }

@@ -15,23 +15,24 @@ use App\Lib\MultipagBradesco\CNAB\Transfer\BankTransferSegmentBBatchDetail as Se
 class TransferBatch
 {
     public static function render(
-        int $agreement,
-        int $batch,
+        string $agreement,
+        string $batch,
         bool $sameBank,
         TransferAccount $company,
-        BankTransfer ...$transfers
+        array $transfers
     ): string {
-        $lines = [Header::render($agreement, $batch, $sameBank, $company)];
+        $lines = [Header::render($agreement, "$batch", $sameBank, $company)];
         $sequence = 0;
         $total = 0;
 
         foreach ($transfers as $transfer) {
             $total += $transfer->getAmount();
-            $lines[] = SegmentA::render($transfer, $batch, ++$sequence, $sameBank);
-            $lines[] = SegmentB::render($transfer, $batch, ++$sequence);
+            $sequence++;
+            $lines[] = SegmentA::render($transfer, $batch, "{$sequence}", $sameBank);
+            $lines[] = SegmentB::render($transfer, (int)$batch, ++$sequence);
         }
 
-        $lines[] = Trailer::render($batch, $sequence, $total);
+        $lines[] = Trailer::render((int)$batch, $sequence, $total);
 
         return CNAB::join($lines, "\r\n");
     }

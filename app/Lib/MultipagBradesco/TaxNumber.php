@@ -24,11 +24,21 @@ class TaxNumber
         $sanitized = preg_replace('/[^0-9]/', '', $number);
         $sanitized = "{$sanitized}";
 
-        $type = match (strlen($sanitized)) {
-            self::CPF_NUMBER_LENGTH => self::TAX_NUMBER_TYPE_CPF,
-            self::CNPJ_NUMBER_LENGTH => self::TAX_NUMBER_TYPE_CNPJ,
-            default => throw new InvalidTaxNumber($number),
-        };
+        // $type = match (strlen($sanitized)) {
+        //     self::CPF_NUMBER_LENGTH => self::TAX_NUMBER_TYPE_CPF,
+        //     self::CNPJ_NUMBER_LENGTH => self::TAX_NUMBER_TYPE_CNPJ,
+        //     default => throw new InvalidTaxNumber($number),
+        // };
+
+        if(strlen($sanitized) == self::CPF_NUMBER_LENGTH){
+            $type = self::TAX_NUMBER_TYPE_CPF;
+
+        }else if(strlen($sanitized) == self::CNPJ_NUMBER_LENGTH){
+            $type = self::TAX_NUMBER_TYPE_CNPJ;
+
+        } else {
+            throw new InvalidTaxNumber($number);
+        }
 
         $this->number = $sanitized;
         $this->type = $type;
